@@ -45,7 +45,7 @@ Overall, the key functionalities and benefits of an ORM include simplified datab
 ## R7 Detail any third party services that your _app_ will use
 
 ## R8 Describe your projects _models_ in terms of the relationships they have with each other
-
+ 
 ## R9 Discuss the database relations to be implemented in your application
 
 ## R10 Describe the way tasks are allocated and tracked in your project
