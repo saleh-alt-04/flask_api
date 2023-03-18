@@ -554,6 +554,14 @@ kotlinCopy code
 ## R6 An ERD for your _app_
 
 ## R7 Detail any third party services that your _app_ will use
+    
+1.  Flask - Flask is a popular Python web framework that allows developers to quickly create web applications. It is used here to create an instance of the Flask application and define routes for handling incoming requests.
+    
+2.  SQLAlchemy and Flask-SQLAlchemy - SQLAlchemy is a Python SQL toolkit and Object-Relational Mapping (ORM) library. Flask-SQLAlchemy is a Flask extension that provides integration between Flask and SQLAlchemy, making it easier to use SQLAlchemy within a Flask application. It is used here to define the database schema and manage the database connection.
+    
+3.  Flask-Marshmallow - Flask-Marshmallow is a Flask extension for object serialization and deserialization. It provides an easy way to convert complex Python objects to JSON, which can be useful when building RESTful APIs. It is used here to define the schema for the product data and serialize/deserialize the data when interacting with the database.
+    
+4.  Flask-JWT-Extended - Flask-JWT-Extended is a Flask extension that provides JSON Web Token (JWT) authentication support. JWT is a standard for securely transmitting information between parties as a JSON object. It is used here to authenticate requests to the API, ensuring that only authorized users can access the data.
 
 ## R8 Describe your projects _models_ in terms of the relationships they have with each other
  
