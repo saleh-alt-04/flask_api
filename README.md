@@ -1,4 +1,4 @@
-# flask api saleh Altamimi
+# T2A2: flask api saleh Altamimi
 
 ## R1: Identification of the _problem_ you are trying to solve by building this particular _app_?
 
@@ -39,6 +39,517 @@ Overall, the key functionalities and benefits of an ORM include simplified datab
 
 ## R5 Document all endpoints for your API
 
+## `GET /categories`
+
+  
+
+Retrieves all the categories stored in the database.
+
+  
+
+### Request
+
+  
+
+- Method: GET
+
+- Endpoint: `/categories`
+
+- Headers:
+
+- Content-Type: application/json
+
+  
+
+### Response
+
+  
+
+- Status Code: 200 OK
+
+- Headers:
+
+- Content-Type: application/json
+
+- Body:
+
+jsonCopy code
+
+`{
+
+"categories": [
+
+{
+
+"id": 1,
+
+"name": "Category 1"
+
+},
+
+{
+
+"id": 2,
+
+"name": "Category 2"
+
+},
+
+...
+
+]
+
+}`
+
+  
+
+## `GET /categories/{id}`
+
+  
+
+Retrieves the category with the given ID.
+
+  
+
+### Request
+
+  
+
+- Method: GET
+
+- Endpoint: `/categories/{id}`
+
+- Headers:
+
+- Content-Type: application/json
+
+- URL Parameters:
+
+- id (int): The ID of the category to retrieve.
+
+  
+
+### Response
+
+  
+
+- Status Code: 200 OK
+
+- Headers:
+
+- Content-Type: application/json
+
+- Body:
+
+jsonCopy code
+
+`{
+
+"id": 1,
+
+"name": "Category 1"
+
+}`
+
+  
+
+## `PUT /categories/{id}`
+
+  
+
+Updates the category with the given ID.
+
+  
+
+### Request
+
+  
+
+- Method: PUT
+
+- Endpoint: `/categories/{id}`
+
+- Headers:
+
+- Content-Type: application/json
+
+- URL Parameters:
+
+- id (int): The ID of the category to update.
+
+- Body:
+
+jsonCopy code
+
+`{
+
+"name": "New Category Name"
+
+}`
+
+  
+
+### Response
+
+  
+
+- Status Code: 200 OK
+
+- Headers:
+
+- Content-Type: application/json
+
+- Body:
+
+jsonCopy code
+
+`{
+
+"id": 1,
+
+"name": "New Category Name"
+
+}`
+
+  
+
+## `DELETE /categories/{id}`
+
+  
+
+Deletes the category with the given ID.
+
+  
+
+### Request
+
+  
+
+- Method: DELETE
+
+- Endpoint: `/categories/{id}`
+
+- Headers:
+
+- Content-Type: application/json
+
+- URL Parameters:
+
+- id (int): The ID of the category to delete.
+
+  
+
+### Response
+
+  
+
+- Status Code: 200 OK
+
+- Headers:
+
+- Content-Type: application/json
+
+- Body:
+
+jsonCopy code
+
+`{
+
+"id": 1,
+
+"name": "Category 1"
+
+}`
+
+  
+
+## `POST /delivery`
+
+  
+
+Creates a new delivery for an order.
+
+  
+
+### Request
+
+  
+
+- Method: POST
+
+- Endpoint: `/delivery`
+
+- Headers:
+
+- Content-Type: application/json
+
+- Body:
+
+jsonCopy code
+
+`{
+
+"order_id": 1,
+
+"delivery_date": "2023-03-19",
+
+"address": "123 Main St",
+
+"city": "Anytown",
+
+"state": "CA",
+
+"zipcode": "12345"
+
+}`
+
+  
+
+### Response
+
+  
+
+- Status Code: 200 OK
+
+- Headers:
+
+- Content-Type: application/json
+
+- Body:
+
+jsonCopy code
+
+`{
+
+"id": 1,
+
+"order_id": 1,
+
+"delivery_date": "2023-03-19",
+
+"address": "123 Main St",
+
+"city": "Anytown",
+
+"state": "CA",
+
+"zipcode": "12345",
+
+"delivery_status": "pending"
+
+}`
+
+  
+
+## `GET /delivery`
+
+  
+
+Retrieves all the deliveries stored in the database.
+
+  
+
+### Request
+
+  
+
+- Method: GET
+
+- Endpoint: `/delivery`
+
+- Headers:
+
+- Content-Type: application/json
+
+  
+
+### Response
+
+  
+
+- Status Code: 200 OK
+
+- Headers:
+
+- Content-Type: application/json
+
+- Body:
+
+Copy code
+
+  
+
+# Get single product by ID
+
+  
+
+@product_bp.route('/product/<id>', methods=['GET']) def get_product(id): product = Product.query.get(id) return product_schema.jsonify(product)
+
+  
+
+# Update a product by ID
+
+  
+
+@product_bp.route('/product/<id>', methods=['PUT']) def update_product(id): product = Product.query.get(id)
+
+  
+
+scssCopy code
+
+  
+
+`name = request.json['name']
+
+description = request.json['description']
+
+price = request.json['price']
+
+qty = request.json['qty']
+
+category_id = request.json['category_id']
+
+  
+
+product.name = name
+
+product.description = description
+
+product.price = price
+
+product.qty = qty
+
+product.category_id = category_id
+
+  
+
+db.session.commit()
+
+  
+
+return product_schema.jsonify(product)`
+
+  
+
+# Delete a product by ID
+
+  
+
+@product_bp.route('/product/<id>', methods=['DELETE']) def delete_product(id): product = Product.query.get(id) db.session.delete(product) db.session.commit()
+
+  
+
+kotlinCopy code
+
+  
+
+`return product_schema.jsonify(product)`
+
+  
+
+@user_bp.route('/user', methods=['POST']) def add_user(): name = request.json['name'] email = request.json['email'] password = request.json['password'] address = request.json['address'] city = request.json['city'] state = request.json['state'] zipcode = request.json['zipcode'] country = request.json['country'] new_user = User(name, email, password, address, city, state, zipcode, country)
+
+  
+
+scssCopy code
+
+  
+
+`db.session.add(new_user)
+
+db.session.commit()
+
+  
+
+return user_schema.jsonify(new_user)`
+
+  
+
+# Get all users
+
+  
+
+@user_bp.route('/users', methods=['GET']) def get_users(): all_users = User.query.all() result = users_schema.dump(all_users) return jsonify(result)
+
+  
+
+# Get single user by ID
+
+  
+
+@user_bp.route('/user/<id>', methods=['GET']) def get_user(id): user = User.query.get(id) return user_schema.jsonify(user)
+
+  
+
+# Update a user by ID
+
+  
+
+@user_bp.route('/user/<id>', methods=['PUT']) def update_user(id): user = User.query.get(id)
+
+  
+
+cssCopy code
+
+  
+
+`name = request.json['name']
+
+email = request.json['email']
+
+password = request.json['password']
+
+address = request.json['address']
+
+city = request.json['city']
+
+state = request.json['state']
+
+zipcode = request.json['zipcode']
+
+country = request.json['country']
+
+  
+
+user.name = name
+
+user.email = email
+
+user.password = password
+
+user.address = address
+
+user.city = city
+
+user.state = state
+
+user.zipcode = zipcode
+
+user.country = country
+
+  
+
+db.session.commit()
+
+  
+
+return user_schema.jsonify(user)`
+
+  
+
+# Delete a user by ID
+
+  
+
+@user_bp.route('/user/<id>', methods=['DELETE']) def delete_user(id): user = User.query.get(id) db.session.delete(user) db.session.commit()
+
+  
+
+kotlinCopy code
+
+  
+
+`return user_schema.jsonify(user)`
 
 ## R6 An ERD for your _app_
 
